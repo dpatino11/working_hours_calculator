@@ -2,32 +2,35 @@ from datetime import datetime
 from config import Options
 
 class Process:
+    """
+    Main Class for the functions of the script
+    """
 
     def __init__(self):
         pass
 
     def read_files(file_list:list)->list:
-        """_summary_
+        """Function that recive a list of files to return the lines in each file
 
         Args:
-            file_list (list): _description_
+            file_list (list): list of files to read lines from
 
         Returns:
-            list: _description_
+            list: list of lines in each file
         """
         lines = [line for each in file_list for line in each.read().split() ]
         print(f"number of lines read: {len(lines)}")
         return lines
            
-    def calulate_payment(configuration:dict , workdays_hours:list) -> str:
-        """_summary_
+    def calulate_payment(configuration:dict , workdays_hours:list) -> dict:
+        """Function that calculates the payment amount for each workday and the hours of the workdays
 
         Args:
-            configuration (Options): _description_
-            workdays_hours (list): _description_
+            configuration (dict): configuration dictionary for the calculation of the payment amount
+            workdays_hours (list): list of workdays and the hours of the workdays
 
         Returns:
-            str: _description_
+            dict: dict with the payment amount and the details of the payment amount for each workday
         """
         total_payment =0
         day_payments =[]

@@ -3,17 +3,17 @@ from utils import get_project_root
 
 class Options:
     """
-    Options Class 
+    Main class for the configuration of the project
     """
 
     def __init__(self):
         pass
 
     def parse(self, args=None):
-        """_summary_
+        """Function tht recibes the args of the main run and opens each file 
 
         Args:
-            args (_type_, optional): _description_. Defaults to None.
+            args (_type_, optional): args from the main run. Defaults to None.
         """
         project_root = get_project_root()
         self.data_input = [
@@ -21,7 +21,7 @@ class Options:
         print(f'number of files recived: {len(self.data_input)}')
 
     def config(self):
-        """_summary_
+        """Functions that configure the payments system
         """
         self.payments_config= {
             'payments': {
@@ -35,33 +35,4 @@ class Options:
             }
         }
         print(f'config payments done:')
-    
-    @staticmethod
-    def get_shcedule(self,day_name:str)->str:
-        """_summary_
-
-        Args:
-            day_week (_type_): _description_
-            hour (_type_): _description_
-
-        Returns:
-            _type_: _description_
-        """
-        return self.payments_config['schedule'][day_name]
-    
-    @staticmethod
-    def get_payment(self,day_week:str, hour:str)->str:
-        """_summary_
-
-        Args:
-            day_week (_type_): _description_
-            hour (_type_): _description_
-
-        Returns:
-            _type_: _description_
-        """
-        return self.payments_config['payments'][day_week][hour]
-
-
-
-
+ 
