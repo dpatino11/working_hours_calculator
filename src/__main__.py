@@ -2,6 +2,7 @@ import sys
 from config import Options
 from calculate_days import Project
 from utils import get_project_root, write_json_output
+from datetime import datetime
 def run_project(args):
     """
     Main Function to run the project
@@ -12,7 +13,7 @@ def run_project(args):
     #print(options.data_input)
     project = Project(options)
     data_payments = project.calculate_payment()
-    write_json_output(f'{get_project_root()}/output/test_file.json', data_payments)
+    write_json_output(f'{get_project_root()}/output/outputfile_{datetime.now().strftime("%Y-%m-%d-%H_%M")}.json', data_payments)
 
 if __name__ == '__main__':
     try:
